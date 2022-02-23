@@ -53,17 +53,14 @@
 							
 								{{-- <td class="center">{{$post->id}}</td> --}}
 								
-								<td class="center">{{$post->title}}</td>
+								<td>{{$post->title}}</td>
 								
-								<td class="center">{!!$post->description!!}</td>
-								<td class="center">{{$post->category->name}}</td>
-								<td class="center">
-									@foreach (json_decode($post->tag->name) as $tag)
-									<ul class="span3">
-										{{$tag}}
-									</ul>
-										
-									@endforeach
+								<td >{!!$post->description!!}</td>
+								<td >{{$post->category->name}}</td>
+								<td>
+								@foreach ($post->tag as $tags)
+									<span> {{$tags->name}}</span>
+								@endforeach
 									</td>
 								
 								

@@ -20,7 +20,7 @@
                         $post['image'] = explode('|',$post->image);
                         $images = $post->image[0];
                     @endphp
-                    <img src="{{asset('/image/' .$images)}}" alt="" style="height: 321px; width:632px" />
+                    <img src="{{asset('/image/' .$images)}}" alt="" />
                   </div>
                   <p>
               
@@ -34,8 +34,8 @@
                     <ul class="meta-post">
                       <li><i class="icon-calendar"></i><a href="#">{{Carbon\Carbon::parse($post->created_at)->format('M d, Y')}} </a></li>
                       <li><i class="icon-user"></i><a href="#"> Masud</a></li>
-                      <li><i class="icon-folder-open"></i><a href="#">{{$post->category->name}} </a></li>
-                      <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
+                      <li><i class="icon-folder-open"></i><a href="{{url('/category/'.$post->category->id)}}">{{$post->category->name}} </a></li>
+                      <li><i class="icon-comments"></i><a href="{{url('post-view/'.$post->id)}}#disqus_thread">Comments</a></li>
                     </ul>
                     <a href="{{url('post-view/'.$post->id)}} " class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
                   </div>

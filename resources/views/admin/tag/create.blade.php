@@ -30,7 +30,7 @@
                         <div class="control-group">
                             <label class="control-label" for="date01">Tag</label>
                             <div class="controls">
-                                <input type="text" data-role="tagsinput"  class="input-xlarge" name="name"  required>
+                                <input type="text" class="input-xlarge" name="name"  required>
                             </div>
                         </div>
 

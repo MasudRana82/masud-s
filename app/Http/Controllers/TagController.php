@@ -29,9 +29,9 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $tags = explode(',', $request->name); // explode means divide. here we saparete data using comma.
+        $tags =  $request->name; // explode means divide. here we saparete data using comma.
         $tag = new Tag;
-        $tag->name = json_encode($tags); //save the data with json encode  
+        $tag->name = $tags; //save the data with json encode  
 
         $tag->save(); //all data save
         return redirect()->back()->with('messege', 'Tag created successfully'); //back function j page e cilo oi page e abr niya ase
@@ -77,9 +77,9 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $category)
     {
-        $sizes = explode(',', $request->name);
+        $tags = $request->name;
         $update = $category->update([
-            'name' => json_encode($sizes),
+            'name' => $tags,
 
         ]);
         if ($update) {

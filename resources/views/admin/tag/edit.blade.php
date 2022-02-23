@@ -43,7 +43,7 @@
                         <div class="control-group">
                             <label class="control-label" for="date01"> Size</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="name" data-role="tagsinput"  required value="{{implode(',',Json_decode($category->name))}}">
+                                <input type="text" class="input-xlarge" name="name"  required value="{{$category->name}}">
                             </div>
                         </div>
 

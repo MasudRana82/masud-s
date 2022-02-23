@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title', 200);
             $table->longText('description');
             $table->Integer('cat_id');
-            $table->Integer('tag_id');
+         
 
             $table->string('image');
             $table->boolean('status')->default(1);

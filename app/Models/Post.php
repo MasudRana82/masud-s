@@ -9,7 +9,7 @@ class Post extends Model
 {
 
     use HasFactory;
-    protected $fillable = ['id', 'cat_id', 'title', 'description', 'status', 'tag_id', 'image',];
+    protected $fillable = ['id', 'cat_id', 'title', 'description', 'status', 'image',];
 
     public function category()
     {
@@ -20,10 +20,10 @@ class Post extends Model
 
     public function tag()
     {
-        return $this->belongsTo(Tag::class,'tag_id');
+        return $this->belongsToMany('App\Models\Tag');
     } 
 
-    public static function catProductCount($cat_id)
+    public static function catPostCount($cat_id)
     {
         $CatCount = Post::where('cat_id', $cat_id)->where('status', 1)->count();
         return $CatCount;

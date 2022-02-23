@@ -47,7 +47,7 @@
  <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2">Description</label>
                              <div class="controls">
-                             <textarea class="cleditor" name="description" rows="3" required></textarea>
+                             <textarea class="cleditor" name="description" rows="12" required></textarea>
                               </div>
                              </div>
 
@@ -69,17 +69,24 @@
 
                        
 
-                        <div class="control-group">
-                            <label class="control-label" for="date01">Select Tag</label>
-                            <div class="controls">
-                                 <select name="tag">
-                                <option>select color</option>
-                                @foreach ($tags as $category)
-                                    <option value="{{$category->id}}" >{{$category->name}}</option> 
-                                @endforeach
-                               </select>
-                            </div>
-                        </div>
+       <div class="control-group">
+               <label class="control-label" for="date01">Select tag</label>        
+              <div class="controls">                   
+                                       
+            @foreach ($tags as $tag)
+                <div class="custom-control custom-checkbox">
+                    
+                <input class="custom-control-input" name="tag[]" type="checkbox" id="{{$tag->id}}" value="{{$tag->id}}">
+                <label for="{{$tag->id}}" class="custom-control-label">{{$tag->name}} </label>
+
+
+                </div>
+             @endforeach
+                                            
+                   </div>
+
+</div>
+                         
 
 
                        
@@ -87,7 +94,7 @@
                        
 
                         <div class="control-group">
-                            <label class="control-label">Image(max 5)</label>
+                            <label class="control-label">Image</label>
                             <div class="controls">
                                 <input type="file" name="file[]" multiple required>
                             </div>

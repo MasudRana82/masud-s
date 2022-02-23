@@ -38,12 +38,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $products = new Post();
-        $products->title = $request->title;
-        $products->description = $request->description;
-        $products->cat_id = $request->category;
 
-        $products->tag_id = $request->tag;
+        $posts = Post::create([
+            'title' => $request->title,
+
+            'description' => $request->description,
+            'cat_id' => $request->category,
+            'image' =>'image.jpg',
+           
+
+
+        ]);
+
+
+        $posts->tag()->attach($request->tag);
 
         $images = array();
         if ($files = $request->file('file')) {
@@ -61,9 +69,12 @@ class PostController extends Controller
                 $images[] = $fileName;
                 $i++;
             }
-            $products['image'] = implode("|", $images);
+            $posts['image'] = implode("|", $images);
+            
+            $posts->save();
+           
 
-            $products->save();
+            
             return redirect()->back()->with('messege', 'New post added Succesfully!');
         } else {
             echo "error";
@@ -121,7 +132,7 @@ class PostController extends Controller
             'title' => $request->title,
             'cat_id' => $request->category,
             
-            'tag_id' => $request->tag,
+            
             
             'description' => $request->description,
            

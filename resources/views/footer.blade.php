@@ -4,40 +4,28 @@
             <div class="widget">
               <h5 class="widgetheading">Browse pages</h5>
               <ul class="link-list">
-                <li><a href="#">About our company</a></li>
-                <li><a href="#">Our services</a></li>
                 
-                <li><a href="#">Explore our portfolio</a></li>
-                <li><a href="#">Get in touch with us</a></li>
+               
+                @foreach ($categories as $category)
+               <li><a href="{{url('/category/'.$category->id)}}">{{$category->name}}</a></li>
+                @endforeach
+                
               </ul>
             </div>
           </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Important stuff</h5>
-              <ul class="link-list">
-                <li><a href="#">Press release</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Career center</a></li>
-                <li><a href="#">Flattern forum</a></li>
-              </ul>
-            </div>
-          </div>
+        
           <div class="span3">
             
           </div>
           <div class="span3">
             <div class="widget">
-              <h5 class="widgetheading">Get in touch with us</h5>
+              <h5 class="widgetheading">Get in touch with me</h5>
               <address>
-								<strong>Flattern studio, Pte Ltd</strong><br>
-								 Springville center X264, Park Ave S.01<br>
-								 Semarang 16425 Indonesia
+								<strong>Dhaka,Bangladesh
 					 		</address>
               <p>
-                <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                <i class="icon-envelope-alt"></i> email@domainname.com
+                <i class="icon-phone"></i> +8801798249882<br>
+                <i class="icon-envelope-alt"></i>masud.rana3836@gmail.com
               </p>
             </div>
           </div>
@@ -49,7 +37,7 @@
             <div class="span6">
               <div class="copyright">
                 <p>
-                  <span>&copy; Masud - All right reserved.</span>
+                  <span>&copy; Masud's blog - All right reserved.</span>
                 </p>
               
               </div>

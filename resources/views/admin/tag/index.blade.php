@@ -49,12 +49,7 @@
 							<tr>
 								<td>{{$category->id}}</td>
 								<td>
-									{{-- if we want to show data, decode  it first. beacause it is json encode data --}}
-								@foreach(json_decode ($category->name) as $sizes) 
-									<ul class="span3">
-										{{$sizes}}
-									</ul>
-								@endforeach	
+									{{$category->name}}
 								</td>
 								
 								

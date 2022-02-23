@@ -486,7 +486,7 @@
 		<script src="{{asset('admin/js/counter.js')}}"></script>
 	
 		<script src="{{asset('admin/js/retina.js')}}"></script>
-		{{-- <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script> --}}
+	
 		
 
 		<script src="{{asset('admin/js/custom.js')}}"></script>

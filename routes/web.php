@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //frontend route
+
 Route::get('/',[HomeController::class,'index']);
+Route::get('/category/{id}',[HomeController::class,'category']);
+Route::get('/tag/{id}',[HomeController::class,'tag']);
 Route::get('/post-view/{id}',[HomeController::class,'post_view']);
 
 //backned routes here
@@ -32,7 +35,7 @@ Route::get('/logout', [SuperAdminController::class, 'logout']);
 
 
 
-//Product route here
+//Post route here
 Route::resource('/post/', PostController::class); //resource route
 Route::get('/post/edit{category}', [PostController::class, 'edit']);
 Route::put('/post/update{category}', [PostController::class, 'update']);

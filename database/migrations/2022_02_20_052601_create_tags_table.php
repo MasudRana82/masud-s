@@ -19,6 +19,13 @@ return new class extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->integer('post_id');
+            $table->string('tag_id');
+
+            
+        });
     }
 
     /**
@@ -29,5 +36,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('tags');
+        Schema::dropIfExists('post_tag');
     }
 };
