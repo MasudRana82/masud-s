@@ -12,7 +12,7 @@ class HomeController extends Controller
         public function index()
         {
             $categories = Category::all();
-            $posts = Post::limit(10)->get();
+            $posts = Post::paginate(3);
             $latest = Post::latest()->limit(3)->get();
             $tags =Tag::all();
             return view('welcome',compact('categories', 'posts', 'latest', 'tags'));
@@ -29,16 +29,19 @@ class HomeController extends Controller
         {
             $tags = Tag::all();
             $latest = Post::latest()->limit(3)->get();
-            $posts= Post::where('cat_id',$id)->where('status',1)->get();
+            $posts= Post::where('cat_id',$id)->where('status',1)->paginate(5);
             return view('welcome', compact('posts', 'latest', 'tags'));
         }
         public function tag($id)
         {
             $tags = Tag::all();
             $latest = Post::latest()->limit(3)->get();
-
             
-            $posts= Post::where('cat_id',$id)->where('status',1)->get();
+
+            $tag = Tag::where('id',$id)->first();
+            $posts=$tag->tag()->paginate(5);
+            
+            
             return view('welcome', compact('posts', 'latest', 'tags'));
         }
 

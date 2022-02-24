@@ -23,9 +23,5 @@ class Post extends Model
         return $this->belongsToMany('App\Models\Tag');
     } 
 
-    public static function catPostCount($cat_id)
-    {
-        $CatCount = Post::where('cat_id', $cat_id)->where('status', 1)->count();
-        return $CatCount;
-    } 
+   
 }

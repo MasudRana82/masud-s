@@ -14,8 +14,10 @@
                 <ul class="cat">
                  @foreach ($categories as $category)
                      
-                
-                  <li><i class="icon-angle-right"></i><a href="{{url('/category/'.$category->id)}}">{{$category->name}} </a><span> (20)</span></li>
+                @php
+                    $count= App\Models\Post::where('cat_id',$category->id)->where('status',1)->count();
+                @endphp
+                  <li><i class="icon-angle-right"></i><a href="{{url('/category/'.$category->id)}}">{{$category->name}} </a><span>({{$count}}) </span></li>
                    @endforeach
                 </ul>
               </div>
@@ -31,20 +33,22 @@
                         $images = $data->image[0];
                     @endphp
                     <a href="{{url('post-view/'.$data->id)}}">
-                    <img src="{{asset('/image/' .$images)}}" alt="" class="pull-left" style="height: 60px; width:60px" />
+                    {{-- <img src="{{asset('/image/' .$images)}}" alt="" class="pull-left" style="height: 60px; width:60px" /> --}}
                     
                      @php
                     // limit the text
-                         $title = Illuminate\Support\Str::of($data->title)->limit(30);
+                         $title = Illuminate\Support\Str::of($data->title)->limit(50);
                     @endphp
                   
-                    <h6>{{$title}}</a></h6>
+                    <h6>{{$title}}</h6>
+                    </a>
                     <p>
                       @php
                     // limit the text
-                        $description = Illuminate\Support\Str::of($data->description)->limit(150);
+                        $description = Illuminate\Support\Str::of($data->description)->limit(200);
                     @endphp
-                      {!!$description!!}
+                      {!!$description!!} <a href="{{url('post-view/'.$data->id)}}">more </a>
+                      
                     </p>
                   </li>
                      @endforeach
@@ -66,7 +70,7 @@
               <a href="#" class="thumbnail align-left"><img src="{{asset('img/avatar.png')}} " alt="" /></a>
               <h5><strong><a href="#">মাসুদ রানা</a></strong></h5>
               <p>
-               একজন লারাভেল ওয়েব ডেভেলপার যে জানতে ভালোবাসে। নতুন কিছূ করতে ভালোবাসে। 
+               একজন লারাভেল ওয়েব ডেভেলপার, যে জানতে ভালোবাসে ও নতুন কিছূ করতে ভালোবাসে। ✌️✌️✌️
               </p>
             </div>
             </aside>

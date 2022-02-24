@@ -41,17 +41,13 @@ class PostController extends Controller
 
         $posts = Post::create([
             'title' => $request->title,
-
             'description' => $request->description,
             'cat_id' => $request->category,
             'image' =>'image.jpg',
-           
-
-
         ]);
 
 
-        $posts->tag()->attach($request->tag);
+        $posts->tag()->attach($request->tag); // mant to many relationship input
 
         $images = array();
         if ($files = $request->file('file')) {

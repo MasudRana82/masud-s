@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+ 
 <section id="content">
    
       <div class="container">
@@ -12,7 +13,17 @@
                     <div class="post-heading">
                       <h3><a href="#">{{$posts->title}}</a></h3>
                     </div>
-
+                    
+                <div class="bottom-article">
+                    <ul class="meta-post">
+                      <li><i class="icon-calendar"></i><a href="#"> {{Carbon\Carbon::parse($posts->created_at)->format('M d, Y')}}</a></li>
+                      <li><i class="icon-user"></i><a href="#"> Masud</a></li>
+                      <li><i class="icon-folder-open"></i><a href="{{url('/category/'.$posts->category->id)}}"> {{$posts->category->name}}</a></li>
+                      
+                    </ul>
+                  </div>
+                  <br>
+                  <br>
                   
                     @php
                         $posts['image']= explode('|',$posts->image);
@@ -26,14 +37,7 @@
                     {!!$posts->description!!}
                   </p>
                  <img src="{{asset('/image/'.$images2)}}" alt="" />
-                  <div class="bottom-article">
-                    <ul class="meta-post">
-                      <li><i class="icon-calendar"></i><a href="#"> {{Carbon\Carbon::parse($posts->created_at)->format('M d, Y')}}</a></li>
-                      <li><i class="icon-user"></i><a href="#"> Masud</a></li>
-                      <li><i class="icon-folder-open"></i><a href="{{url('/category/'.$posts->category->id)}}"> {{$posts->category->name}}</a></li>
-                      
-                    </ul>
-                  </div>
+                  
                   <div class="bottom-article">
                     <ul class="meta-post">
                       <li><i ></i><a href="#">Related Tags:</a></li>
@@ -42,6 +46,13 @@
                       <li><i class="icon-tags"></i><a href="#">#{{$data->name}} </a></li>
                      @endforeach
                       
+                    </ul>
+                  </div>
+                  <div class="bottom-article">
+                    <ul class="meta-post">
+                      <li><i ></i><a href="#">Share:</a></li>
+                    
+                       {!! Share::page(url('https://127.0.0.1:8000/post-view/1'))->facebook()->twitter()->whatsapp()->facebook()->linkedin()->telegram()!!}
                     </ul>
                   </div>
                   <span> </span>
