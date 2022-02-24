@@ -9,7 +9,7 @@ class Post extends Model
 {
 
     use HasFactory;
-    protected $fillable = ['id', 'cat_id', 'title', 'description', 'status', 'image',];
+    protected $fillable = ['id', 'cat_id', 'title', 'description', 'status', 'image','reads'];
 
     public function category()
     {
@@ -21,6 +21,12 @@ class Post extends Model
     public function tag()
     {
         return $this->belongsToMany('App\Models\Tag');
+    } 
+    public function viewscount()
+    {
+        $this->reads++;
+
+        return $this->save();
     } 
 
    

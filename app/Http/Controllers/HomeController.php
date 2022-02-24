@@ -6,25 +6,35 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
         public function index()
         {
-            $categories = Category::all();
+           
             $posts = Post::paginate(3);
             $latest = Post::latest()->limit(3)->get();
             $tags =Tag::all();
-            return view('welcome',compact('categories', 'posts', 'latest', 'tags'));
+            return view('welcome',compact( 'posts', 'latest', 'tags'));
         }
         public function post_view($id)
         {
-            // $categories = Category::all();
+            
             $posts=Post::findOrFail($id);
+// use cookie for more accurate views
+        // if (Cookie::get($posts->id) != '') {
+        //     Cookie::set('$posts->id', '1', 60);
+        //     $posts->viewscount();
+        // }
+
+            $posts->viewscount();
+        
             $latest = Post::latest()->limit(3)->get();
             $tags = Tag::all();
-            return view('post',compact('posts', 'latest', 'tags'));
+            return view('post',compact('posts', 'latest', 'tags',));
         }
+
         public function category($id)
         {
             $tags = Tag::all();

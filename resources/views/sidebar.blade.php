@@ -40,16 +40,16 @@
                          $title = Illuminate\Support\Str::of($data->title)->limit(50);
                     @endphp
                   
-                    <h6>{{$title}}</h6>
+                    <p>{{$title}}</p>
                     </a>
-                    <p>
+                    {{-- <p>
                       @php
                     // limit the text
                         $description = Illuminate\Support\Str::of($data->description)->limit(200);
                     @endphp
                       {!!$description!!} <a href="{{url('post-view/'.$data->id)}}">more </a>
                       
-                    </p>
+                    </p> --}}
                   </li>
                      @endforeach
                  

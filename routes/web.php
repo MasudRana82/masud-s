@@ -27,7 +27,7 @@ Route::get('/category/{id}',[HomeController::class,'category']);
 Route::get('/tag/{id}',[HomeController::class,'tag']);
 Route::get('/post-view/{id}',[HomeController::class,'post_view']);
 
-Route::get('social-share', [SocialShareController::class, 'index']);
+
 
 //backned routes here
 Route::get('/admins', [AdminController::class, 'index']);

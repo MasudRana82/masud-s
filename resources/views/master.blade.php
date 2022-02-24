@@ -24,6 +24,10 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
   <link rel="shortcut icon" href="{{asset('ico/favicon.png')}}" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      
+ 
+  
 
 </head>
 
@@ -65,6 +69,8 @@
   <script src="{{asset('js/jquery.ba-cond.min.js')}}"></script>
   <script src="{{asset('js/jquery.slitslider.js')}}"></script>
   <script src="{{asset('js/animate.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/share.js') }}"></script>
 
   <!-- Template Custom JavaScript File -->
   <script src="js/custom.js"></script>

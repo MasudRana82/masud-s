@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->string('image');
             $table->boolean('status')->default(1);
+            $table->bigInteger('reads')->default(0);
             $table->timestamps();
         });
     }
