@@ -3,8 +3,9 @@
              
             <aside class="right-sidebar">
               <div class="widget">
-                <form class="form-search">
-                  <input placeholder="Type something" type="text" class="input-medium search-query">
+                <form action="{{ url('/search')}} " method="POST">
+                  @csrf
+                  <input placeholder="Type something" type="text" class="input-medium search-query" name="name" value="{{request('name')}} ">
                   <button type="submit" class="btn btn-square btn-theme">Search</button>
                 </form>
               </div>

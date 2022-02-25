@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="span8">
-            @foreach ($posts as $post)
+            @forelse ($posts as $post)
                 
            
             <article>
@@ -14,7 +14,7 @@
                 <div class="span8">
                   <div class="post-image">
                     <div class="post-heading">
-                      <h3><a href="{{url('post-view/'.$post->id)}}">{{$post->title}} </a></h3>
+                      <h3><a href="{{url('post-view/'.$post->id)}}"> {{$post->title}} </a></h3>
                     </div>
                     @php
                         $post['image'] = explode('|',$post->image);
@@ -42,13 +42,21 @@
                 </div>
               </div>
             </article>
-             @endforeach
+            @empty
+            <h2 style="text-align: center" >No Post...😪😪😪</h2>
+                
+           
+                
+           
+             @endforelse
             
             <div id="pagination">
-              <span class="all">Page :</span>
+              <span class="all"></span>
              {!! $posts->links() !!}
             </div>
+            
           </div>
+          
 
           
           @include('sidebar')

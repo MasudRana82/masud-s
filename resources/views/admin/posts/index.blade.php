@@ -59,7 +59,7 @@
 								<td >{{$post->category->name}}</td>
 								<td>
 								@foreach ($post->tag as $tags)
-									<span> {{$tags->name}}</span>
+									<span class="label label-success"> {{$tags->name}}</span>
 								@endforeach
 									</td>
 								

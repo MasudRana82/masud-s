@@ -10,22 +10,13 @@ use App\Http\Controllers\SocialShareController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //frontend route
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/category/{id}',[HomeController::class,'category']);
 Route::get('/tag/{id}',[HomeController::class,'tag']);
 Route::get('/post-view/{id}',[HomeController::class,'post_view']);
+Route::post('/search',[HomeController::class,'search']);
 
 
 
@@ -40,8 +31,8 @@ Route::get('/logout', [SuperAdminController::class, 'logout']);
 
 //Post route here
 Route::resource('/post/', PostController::class); //resource route
-Route::get('/post/edit{category}', [PostController::class, 'edit']);
-Route::put('/post/update{category}', [PostController::class, 'update']);
+Route::get('/post/edit{posts}', [PostController::class, 'edit']);
+Route::put('/post/update{post}', [PostController::class, 'update']);
 Route::put('/post/delete{category}', [PostController::class, 'destroy']);
 Route::get('/post-status{category}', [PostController::class, 'change_status']);
 

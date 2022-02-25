@@ -53,22 +53,16 @@
             </li> 
             <li>Page Views: {{$posts->reads}}</li>
                     </ul>
-                    
-                   
-                    
+       
                   </div>
-                  
-                 
-             
-               
-                
+ 
                   <br>
                   <br>
                   
                     @php
                         $posts['image']= explode('|',$posts->image);
                         $images1= $posts->image[0];
-                        $images2= $posts->image[1];
+                        // $images2= $posts->image[1];
                     @endphp
 
         <img src="{{asset('/image/'.$images1)}}" alt="" />
@@ -76,7 +70,7 @@
                   <p>
                     {!!$posts->description!!}
                   </p>
-                 <img src="{{asset('/image/'.$images2)}}" alt="" />
+                 {{-- <img src="{{asset('/image/'.$images2)}}" alt="" /> --}}
                   
                   <div class="bottom-article">
                     <ul class="meta-post">

@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -47,7 +47,7 @@ class PostController extends Controller
         ]);
 
 
-        $posts->tag()->attach($request->tag); // mant to many relationship input
+        $posts->tag()->attach($request->tag); // ! mant to many relationship input
 
         $images = array();
         if ($files = $request->file('file')) {
@@ -71,7 +71,7 @@ class PostController extends Controller
            
 
             
-            return redirect()->back()->with('messege', 'New post added Succesfully!');
+            return redirect()->back()->with('messege', 'New Post added Succesfully!');
         } else {
             echo "error";
         }
@@ -89,9 +89,10 @@ class PostController extends Controller
             $category->update(['status' => 0]);
         } else {
             $category->update(['status' => 1]);
+            
         }
 
-        return redirect()->back()->with('messege', '  Status change successfully');
+        return redirect()->back()->with('messege', 'Post Status change successfully👍');
     }
 
     /**
@@ -102,13 +103,10 @@ class PostController extends Controller
      */
     public function edit(Post $posts)
     {
-        $categories = Category::all();
-       
         
         $tags = Tag::all();
        
-        
-        return view('admin.posts.edit', compact('categories', 'tags', 'posts'));
+        return view('admin.posts.edit', compact('tags', 'posts'));
     }
 
 
@@ -119,24 +117,40 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $product)
+    public function update(Request $request, Post $post)
     {
-      
-        $color = explode(',', $request->color);
-        $update = $product->update([
+        $images = array();
+        if ($files = $request->file('file')) {
+            $i = 0;
+            foreach ($files as $file) {
+                $name = $file->getClientOriginalName();
+                $fileNameExtract = explode('.', $name);
+                $fileName = $fileNameExtract[0];
+                $fileName .= time();
+                $fileName .= $i;
+                $fileName .= '.';
+                $fileName .= $fileNameExtract[1];
+
+                $file->move('image', $fileName);
+                $images[] = $fileName;
+                $i++;
+            }
+            $posts['image'] = implode("|", $images);
+        }
+       
+        $update = $post->update([
             
             'title' => $request->title,
-            'cat_id' => $request->category,
-            
-            
-            
             'description' => $request->description,
+            'cat_id' => $request->category,
+            $post->tag()->sync($request->tag),
            
-            // 'image'=>$request->image,
+          
+             'image' => $posts['image'],
         ]);
         if ($update) {
 
-            return redirect('/size')->with('messege', 'Product update successfully');
+            return redirect('/post')->with('messege', 'Post update successfully');
         }
     }
 
@@ -151,7 +165,7 @@ class PostController extends Controller
         $result = $category->delete();
 
         if ($result) {
-            return redirect()->back()->with('messege', 'Product delete successfully!!');
+            return redirect()->back()->with('messege', 'Post delete successfully!!');
         }
     }
 }

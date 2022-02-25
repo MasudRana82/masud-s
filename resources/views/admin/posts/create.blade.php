@@ -26,7 +26,7 @@
 
                     </p>
                
-                <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Product </h2>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Post </h2>
                 
 
             </div>
@@ -47,7 +47,7 @@
  <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2">Description</label>
                              <div class="controls">
-                             <textarea class="cleditor" name="description" rows="12" required></textarea>
+                             <textarea class="ckeditor form-control" name="description" rows="12" required></textarea>
                               </div>
                              </div>
 

@@ -31,16 +31,16 @@
                     <fieldset>
 
 
-                        <div class="control-group">
-                            <label class="control-label" for="date01">title</label>
+                       <div class="control-group">
+                            <label class="control-label" for="date01"> title</label>
                             <div class="controls">
-                                <input type="text" class="input-xlarge" name="name" value="{{$posts->title}}" required>
+                                <input type="text" class="input-xlarge" name="title"  required value="{{$posts->title}}">
                             </div>
                         </div>
    <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2">Description</label>
                              <div class="controls">
-                             <textarea class="cleditor" name="description" rows="3" value="{{$posts->description}} " required></textarea>
+                             <textarea class="ckeditor form-control" name="description" rows="12" required value="{!!$posts->description!!}"></textarea>
                               </div>
                              </div>
 
@@ -48,7 +48,7 @@
                             <label class="control-label" for="date01">Select Category</label>
                             <div class="controls">
                                  <select name="category">
-                                <option>select category</option>
+                                <option value="{{$posts->category->id}}">{{$posts->category->name}}</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" >{{$category->name}}</option> 
                                 @endforeach
@@ -62,17 +62,28 @@
 
                                
 
-                        <div class="control-group">
-                            <label class="control-label" for="date01">Select tag</label>
-                            <div class="controls">
-                                 <select name="color">
-                                <option>select tag</option>
-                                @foreach ($tags as $tag)
-                                    <option value="{{$tag->id}}" >{{$tag->name}}</option> 
-                                @endforeach
-                               </select>
-                            </div>
-                        </div>
+                         <div class="control-group">
+               <label class="control-label" for="date01">Select tag</label>        
+              <div class="controls">                   
+                                       
+            @foreach ($tags as $tag)
+                <div class="custom-control custom-checkbox">
+                    
+                <input class="custom-control-input" name="tag[]" type="checkbox" id="{{$tag->id}}" value="{{$tag->id}}" 
+                @foreach ($posts->tag as $tags)
+                
+                    @if ($tag->id == $tags->id) checked @endif  
+                @endforeach
+                >
+                <label for="{{$tag->id}}" class="custom-control-label">{{$tag->name}} </label>
+
+
+                </div>
+             @endforeach
+                                            
+                   </div>
+
+</div>
 
 
                       
