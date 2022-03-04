@@ -23,9 +23,9 @@ Complete laravel ecommerce Project with ssl commerze payment gateway.
 - [JQuery](https://jquery.com)
 - [MySql](https://)
 
-[![Product Name Screen Shot][project-screenshot1]]
-[![Product Name Screen Shot][project-screenshot2]]
-[![Product Name Screen Shot][project-screenshot3]]
+[![Product Name Screen Shot][project-screenshot1]](https://example.com)
+[![Product Name Screen Shot][project-screenshot2]](https://example.com)
+[![Product Name Screen Shot][project-screenshot3]](https://example.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
