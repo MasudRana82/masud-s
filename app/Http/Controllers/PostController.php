@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Post;
 
 use App\Models\Tag;
+use Illuminate\Contracts\Support\ValidatedData;
+use Illuminate\Support\ValidatedInput;
 
 class PostController extends Controller
 {
@@ -47,8 +49,8 @@ class PostController extends Controller
         ]);
 
 
-        $posts->tag()->attach($request->tag); // ! mant to many relationship input
-
+      $posts->tag()->attach($request->tag); // ! mant to many relationship input
+        
         $images = array();
         if ($files = $request->file('file')) {
             $i = 0;

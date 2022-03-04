@@ -5,7 +5,7 @@
               <div class="widget">
                 <form action="{{ url('/search')}} " method="POST">
                   @csrf
-                  <input placeholder="Type something" type="text" class="input-medium search-query" name="name" value="{{request('name')}} ">
+                  <input placeholder="Search Here🔍" type="text" class="input-medium search-query" name="name" value="{{request('name')}}" >
                   <button type="submit" class="btn btn-square btn-theme">Search</button>
                 </form>
               </div>
@@ -34,19 +34,19 @@
                         $images = $data->image[0];
                     @endphp
                     <a href="{{url('post-view/'.$data->id)}}">
-                    {{-- <img src="{{asset('/image/' .$images)}}" alt="" class="pull-left" style="height: 60px; width:60px" /> --}}
+                    <img src="{{asset('/image/' .$images)}}" alt="" class="pull-left"  />
                     
                      @php
                     // limit the text
-                         $title = Illuminate\Support\Str::of($data->title)->limit(50);
+                        //  $title = Illuminate\Support\Str::of($data->title)->limit(50);
                     @endphp
                   
-                    <p>{{$title}}</p>
+                    <p>{{$data->title}}</p>
                     </a>
                     {{-- <p>
                       @php
                     // limit the text
-                        $description = Illuminate\Support\Str::of($data->description)->limit(200);
+                        $description = Illuminate\Support\Str::of($data->description)->limit(100);
                     @endphp
                       {!!$description!!} <a href="{{url('post-view/'.$data->id)}}">more </a>
                       
@@ -67,12 +67,6 @@
                 </ul>
               </div>
             </div>
-              <div class="about-author" >
-              <a href="#" class="thumbnail align-left"><img src="{{asset('img/avatar.png')}} " alt="" /></a>
-              <h5><strong><a href="#">মাসুদ রানা</a></strong></h5>
-              <p>
-               একজন লারাভেল ওয়েব ডেভেলপার, যে জানতে ভালোবাসে ও নতুন কিছূ করতে ভালোবাসে। ✌️✌️✌️
-              </p>
-            </div>
+             
             </aside>
           </div>

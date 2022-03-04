@@ -40,7 +40,8 @@
    <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2">Description</label>
                              <div class="controls">
-                             <textarea class="ckeditor form-control" name="description" rows="12" required value="{!!$posts->description!!}"></textarea>
+                             <textarea class="ckeditor" name="description" rows="12" required value="{!! $posts->description !!}"></textarea>
+                           
                               </div>
                              </div>
 

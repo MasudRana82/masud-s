@@ -23,10 +23,10 @@
               <address>
 								<strong>Dhaka,Bangladesh
 					 		</address>
-              <p>
+              
                 <i class="icon-phone"></i> +8801798249882<br>
                 <i class="icon-envelope-alt"></i>masud.rana3836@gmail.com
-              </p>
+              
             </div>
           </div>
         </div>

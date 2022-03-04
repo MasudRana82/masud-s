@@ -51,3 +51,4 @@ Route::get('/color/edit{category}', [TagController::class, 'edit']);
 Route::put('/color/update{category}', [TagController::class, 'update']);
 Route::put('/color/delete{category}', [TagController::class, 'destroy']);
 Route::get('/color-status{category}', [TagController::class, 'change_status']);
+

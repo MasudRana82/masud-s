@@ -18,10 +18,11 @@ class Post extends Model
 
 
 
-    public function tag()
+    public function tag() //for show tag
     {
         return $this->belongsToMany('App\Models\Tag');
-    } 
+    }
+     
     public function viewscount()
     {
         $this->reads++;
