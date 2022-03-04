@@ -2,7 +2,7 @@
 
 ## About The Project
 
-Complete laravel ecommerce Project with ssl commerze payment gateway.
+Complete laravel  blog project.
 
 ### Feature
 
